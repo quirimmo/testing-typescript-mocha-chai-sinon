@@ -71,8 +71,16 @@ describe('Main Hooks', () => {
 // integrating mocha with chai, you can use the following ways for testing: expect, should and assert
 //  examples of all these methods
 describe('using expect, should and assert', function() {
-    it('should use expect', function() {
+    it('should use should keyword', function() {
         let x = 5;
         x.should.be.equal(5);     
-    });    
+    });
+    it('should use expect keyword', function() {
+        let x = 5;
+        expect(x).to.be.equal(5);     
+    });       
+    it('should use assert keyword', function() {
+        let x = 5;
+        assert.equal(x, 5);     
+    });         
 });
