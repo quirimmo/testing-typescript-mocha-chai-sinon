@@ -10,34 +10,12 @@
 //             expect(Utils.getTextSeparator()).to.equal(textSeparator);
 //         });
 
-//         it('should fail', function () {
-//             expect(1).to.equal(1);
-//         });
-
 //     });
 
 //     describe('testing mocha', function () {
 
 //         it('#indexOf', function () {
 //             assert.equal(-1, [1, 2, 3].indexOf(4));
-//         });
-
-//         // pending test below, defined just avoiding the callback
-//         it('should return -1 when the value is not present');
-
-//         // using the only keyword, we will execute just the following block of tests. It works with it keyword
-//         // only can be used multiple times and define the list of tests to exclusively run
-//         // describe.only('#indexOf()', function() {
-//         // });
-
-//         // with the skip keyword, mocha will skip the tests and they will result as pending. The keyword can be used with it and describe as the only keyword
-//         it.skip('skip this test', function () {
-//         });
-
-
-//         it('should be retried another 2 times', function () {
-//             // Specify this test to only retry up to 2 times, plus the first one so it should be executed 3 times
-//             this.retries(2);
 //         });
 
 //     });
