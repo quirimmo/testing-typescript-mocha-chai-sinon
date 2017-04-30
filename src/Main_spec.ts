@@ -54,18 +54,21 @@ describe('Main Hooks', () => {
 
 
 // ========== PENDING TESTS =============
-// If you avoid to define the callback to the describe/it blocks, the tests will result as pending
-// it('should be marked as pending');
-// describe('should be marked as pending');
+// If you avoid to define the callback to an it block, the test will result as pending
+describe('Pending Test', function() {
+    it('should be marked as pending');
+});
 
 
 // ========== RETRIES FUNCTIONALITY =============
 // using the this.retries() function, you will explicetely set the number of times to retry a certain test.
 // considering the first execution, if you specify this.retries(n), the test will be executed 1+n times
-// it('should be retried another 2 times', function () {
-//     this.retries(2);
-//     // my test here
-// });
+describe('Retries Test', function() {
+    it('should be retried another 2 times', function () {
+        this.retries(2);
+        ([1,2,3].length).should.be.equal(3);
+    });
+});
 
 
 // ========== EXPECT, ASSERT AND SHOULD KEYWORDS =============
