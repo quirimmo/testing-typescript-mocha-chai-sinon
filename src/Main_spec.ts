@@ -87,3 +87,49 @@ describe('using expect, should and assert', function() {
         assert.equal(x, 5);     
     });         
 });
+
+
+// ========== DYNAMIC TESTS =============
+describe('dynamic tests for Main method sumAllElements(list)', function() {
+    let tests = [
+        { list: [1, 2], expected: 3 },
+        { list: [1, 2, 3], expected: 6 },
+        { list: [1, 2, 3, 4], expected: 10 }
+    ];
+    let mainInstance: Main = new Main();
+    tests.forEach(function (test) {
+        it(`should correctly sums the elements of [${test.list}] returning the expected value ${test.expected}`, function () {
+            let res = mainInstance.sumAllElements(test.list);
+            res.should.be.equal(test.expected);
+        });
+    });
+});
+
+
+// ========== CHAI METHODS =============
+describe('explore all the chai methods and functionalities', function() {
+
+    it('should check correctly the types', function () {
+        let x = 3;
+        x.should.be.a('number');
+        let y = 'hello';
+        y.should.be.a('string');
+        let w = {};
+        w.should.be.a('object');
+        let z = function () { };
+        z.should.be.a('function');
+    });
+
+    it('should check correctly the length of an array', function () {
+        let list = [1, 2, 3, 4, 5];
+        list.should.have.lengthOf(5);
+    });
+
+    it('should check correctly the presence of a property inside an object', function () {
+        let obj = { test: 'TEST', foo: { bar: { baz: 'quux' } } };
+        obj.should.have.property('test');
+        obj.should.have.property('test', 'TEST');
+        obj.should.have.deep.property('foo.bar.baz', 'quux');
+    });
+
+});

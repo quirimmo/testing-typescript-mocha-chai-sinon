@@ -26,8 +26,4 @@ pending tests with describe/it blocks without callbacks
 
 this.retries
 
-with chai we can use expect, should and assert methods
-
-use of suites
-
-
+with chai we can use expect, should and assert methods and depending on BDD, TDD you use different expressions for suites

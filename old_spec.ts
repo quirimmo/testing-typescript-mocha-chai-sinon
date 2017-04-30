@@ -3,22 +3,208 @@
 
 
 
-//     describe('#getTextSeparator() method', function () {
+//     describe('explore all the chai expectations', function () {
 
-//         it('should return the correct text separator', function () {
-//             let textSeparator = '\n------------\n';
-//             expect(Utils.getTextSeparator()).to.equal(textSeparator);
+
+//         it('should check correctly the presence of a property inside an object', function () {
+//             let obj = {
+//                 test: 'TEST'
+//             };
+//             obj.should.have.property('test');
+//             obj.should.have.property('test', 'TEST');
+//             expect({ foo: { bar: { baz: 'quux' } } }).to.have.deep.property('foo.bar.baz', 'quux');
+//         });
+
+//         it('should check the equality of simple type', function () {
+//             let simpleString = 'Simple String';
+//             simpleString.should.be.equal('Simple String');
+//         });
+
+//         it('should check the equality of complex types', function () {
+//             let obj = {
+//                 test: 'TEST'
+//             };
+//             obj.should.be.deep.equal({
+//                 test: 'TEST'
+//             });
+//             expect(null).to.be.a('null');
+//             expect(undefined).to.be.an('undefined');
+//             expect(new Error).to.be.an('error');
+//             expect(new Promise<any>((resolve, reject) => { })).to.be.a('promise');
+//             expect(new Float32Array(2)).to.be.a('float32array');
+//             expect(Symbol()).to.be.a('symbol');
+//             let Foo = function () { };
+//             let foo = new Foo();
+//             expect(foo).to.be.an.instanceof(Foo);
+//             var arr = [
+//                 ['chai', 'matcha', 'konacha']
+//                 , [{ tea: 'chai' }
+//                     , { tea: 'matcha' }
+//                     , { tea: 'konacha' }]
+//             ];
+//             expect(arr).to.have.deep.property('[0][1]', 'matcha');
+//             expect(arr).to.have.deep.property('[1][2].tea', 'konacha');
+//         });
+
+//         it('not statement', function () {
+//             let foo = 'foo bar';
+//             foo.should.not.equal('foo');
+//             let fn = function () { };
+//             fn.should.not.throw(Error);
+//             expect({ foo: 'baz' }).to.have.property('foo').and.not.equal('bar');
+//         });
+
+//         it('any statement', function () {
+//             let foo = {
+//                 bar: 'value'
+//             };
+//             expect(foo).to.have.any.keys('bar', 'baz');
+//         });
+
+//         it('all statement', function () {
+//             let foo = {
+//                 bar: 'value1',
+//                 baz: 'value2'
+//             };
+//             expect(foo).to.have.all.keys('bar', 'baz');
+//         });
+
+//         it('include/contains statements', function () {
+//             expect([1, 2, 3]).to.include(2);
+//             expect('foobar').to.contain('foo');
+//             expect({ foo: 'bar', hello: 'universe' }).to.include.keys('foo');
+//         });
+
+//         it('ok statement', function () {
+//             expect('everything').to.be.ok;
+//             expect(1).to.be.ok;
+//             expect(false).to.not.be.ok;
+//             expect(undefined).to.not.be.ok;
+//             expect(null).to.not.be.ok;
+//         });
+
+//         it('true/false statements', function () {
+//             expect(true).to.be.true;
+//             expect(1).to.not.be.true;
+//             expect(false).to.be.false;
+//             expect(0).to.not.be.false;
+//         });
+
+//         it('null/undefined statements', function () {
+//             expect(null).to.be.null;
+//             expect(undefined).to.not.be.null;
+//             expect(undefined).to.be.undefined;
+//             expect(null).to.not.be.undefined;
+//         });
+
+//         // exist checks if the target is neither null or undefined
+//         it('exist statement', function () {
+//             var foo = 'hi', bar = null, baz;
+//             expect(foo).to.exist;
+//             expect(bar).to.not.exist;
+//             expect(baz).to.not.exist
+//         });
+
+//         // checks if the target's length is 0
+//         it('empty statement', function () {
+//             expect([]).to.be.empty;
+//             expect('').to.be.empty;
+//             expect({}).to.be.empty;
+//         });
+
+//         // eql is a short for deep.equal
+//         it('eql statement', function () {
+//             expect({ foo: 'bar' }).to.eql({ foo: 'bar' });
+//             expect([1, 2, 3]).to.eql([1, 2, 3]);
+//         });
+
+//         it('above/below statements', function () {
+//             expect('foo').to.have.length.above(2);
+//             expect([1, 2, 3]).to.have.length.above(2);
+//             expect('foo').to.have.length.below(4);
+//             expect([1, 2, 3]).to.have.length.below(4);
+//         });
+
+//         it('least/most statements', function () {
+//             expect('foo').to.have.length.of.at.least(2);
+//             expect([1, 2, 3]).to.have.length.of.at.least(3);
+//             expect('foo').to.have.length.of.at.most(4);
+//             expect([1, 2, 3]).to.have.length.of.at.most(3);
+//         });
+
+//         it('within statement', function () {
+//             expect('foo').to.have.length.within(2, 4);
+//             expect([1, 2, 3]).to.have.length.within(2, 4);
+//         });
+
+//         // check for regular expressions
+//         it('within statement', function () {
+//             expect('foobar').to.match(/^foo/);
+//         });
+
+//         // check that a string contains a substring
+//         it('string statement', function () {
+//             expect('foobar').to.have.string('bar');
+//         });
+
+//         // check that the target object/class responds to a method
+//         it('respondTo statement', function () {
+//             let Klass= function() {};
+//             Klass.prototype.bar = function(){};
+//             expect(Klass).to.respondTo('bar');
+//             let obj= {
+//                 bar: function() {}
+//             };
+//             expect(obj).to.respondTo('bar');
+//         });
+
+
+//         // check that the target passes a given truth test
+//         it('satisfy statement', function () {
+//             expect(1).to.satisfy(function(num) { return num > 0; });
+//         });
+
+
+//         // check that the target contains members
+//         it('members statement', function () {
+//             expect([1, 2, 3]).to.include.members([3, 2]);
+//             expect([1, 2, 3]).to.not.include.members([3, 2, 8]);
+//             expect([4, 2]).to.have.members([2, 4]);
+//             expect([5, 2]).to.not.have.members([5, 2, 1]);
+//         });
+
+//         // check that the target contains an element as top level elements of an array
+//         it('oneOf statement', function () {
+//             expect('a').to.be.oneOf(['a', 'b', 'c']);
+//             expect(9).to.not.be.oneOf(['z']);
+//             expect([3]).to.not.be.oneOf([1, 2, [3]]);
+//         });
+
+//         // check that a function changes a property of an object
+//         it('change statement', function () {
+//             var obj = { val: 10 };
+//             var fn = function() { obj.val += 3 };
+//             var noChangeFn = function() { return 'foo' + 'bar'; };
+//             expect(fn).to.change(obj, 'val');
+//             expect(noChangeFn).to.not.change(obj, 'val');
+//         });
+
+
+//         // check that a function increases or decreases a property value
+//         it('increase/decrease statements', function () {
+//             var obj = { val: 10 };
+//             var increaseFn = function() { obj.val = 15 };
+//             expect(increaseFn).to.increase(obj, 'val');
+//             var decreaseFn = function() { obj.val = 5 };
+//             expect(decreaseFn).to.decrease(obj, 'val');
 //         });
 
 //     });
 
-//     describe('testing mocha', function () {
 
-//         it('#indexOf', function () {
-//             assert.equal(-1, [1, 2, 3].indexOf(4));
-//         });
+// });
 
-//     });
+
 
 
 //     // test promises using mocha + chai-as-promised
@@ -338,245 +524,7 @@
 
 
 
-//     // ============ DYNAMIC TESTS ==========
-//     function add() {
-//         return Array.prototype.slice.call(arguments).reduce(function (prev, curr) {
-//             return prev + curr;
-//         }, 0);
-//     }
-//     describe('add()', function () {
-//         var tests = [
-//             { args: [1, 2], expected: 3 },
-//             { args: [1, 2, 3], expected: 6 },
-//             { args: [1, 2, 3, 4], expected: 10 }
-//         ];
 
-//         tests.forEach(function (test) {
-//             it('correctly adds ' + test.args.length + ' args', function () {
-//                 var res = add.apply(null, test.args);
-//                 assert.equal(res, test.expected);
-//             });
-//         });
-
-//     });
-
-//     // with chai you can use should, expect or assert, depending on the kind of testing process you are using. With BDD you should use expect or should
-//     // all the other expectations can implement the same methods listed below
-//     describe('explore all the chai expectations', function () {
-
-//         it('should check correctly the types', function () {
-//             let x = 3;
-//             x.should.be.a('number');
-//             let y = 'hello';
-//             y.should.be.a('string');
-//             let w = {};
-//             w.should.be.a('object');
-//             let z = function () { };
-//             z.should.be.a('function');
-//         });
-
-//         it('should check correctly the length of an array', function () {
-//             let list = [1, 2, 3, 4, 5];
-//             list.should.have.lengthOf(5);
-//         });
-
-//         it('should check correctly the presence of a property inside an object', function () {
-//             let obj = {
-//                 test: 'TEST'
-//             };
-//             obj.should.have.property('test');
-//             obj.should.have.property('test', 'TEST');
-//             expect({ foo: { bar: { baz: 'quux' } } }).to.have.deep.property('foo.bar.baz', 'quux');
-//         });
-
-//         it('should check the equality of simple type', function () {
-//             let simpleString = 'Simple String';
-//             simpleString.should.be.equal('Simple String');
-//         });
-
-//         it('should check the equality of complex types', function () {
-//             let obj = {
-//                 test: 'TEST'
-//             };
-//             obj.should.be.deep.equal({
-//                 test: 'TEST'
-//             });
-//             expect(null).to.be.a('null');
-//             expect(undefined).to.be.an('undefined');
-//             expect(new Error).to.be.an('error');
-//             expect(new Promise<any>((resolve, reject) => { })).to.be.a('promise');
-//             expect(new Float32Array(2)).to.be.a('float32array');
-//             expect(Symbol()).to.be.a('symbol');
-//             let Foo = function () { };
-//             let foo = new Foo();
-//             expect(foo).to.be.an.instanceof(Foo);
-//             var arr = [
-//                 ['chai', 'matcha', 'konacha']
-//                 , [{ tea: 'chai' }
-//                     , { tea: 'matcha' }
-//                     , { tea: 'konacha' }]
-//             ];
-//             expect(arr).to.have.deep.property('[0][1]', 'matcha');
-//             expect(arr).to.have.deep.property('[1][2].tea', 'konacha');
-//         });
-
-//         it('not statement', function () {
-//             let foo = 'foo bar';
-//             foo.should.not.equal('foo');
-//             let fn = function () { };
-//             fn.should.not.throw(Error);
-//             expect({ foo: 'baz' }).to.have.property('foo').and.not.equal('bar');
-//         });
-
-//         it('any statement', function () {
-//             let foo = {
-//                 bar: 'value'
-//             };
-//             expect(foo).to.have.any.keys('bar', 'baz');
-//         });
-
-//         it('all statement', function () {
-//             let foo = {
-//                 bar: 'value1',
-//                 baz: 'value2'
-//             };
-//             expect(foo).to.have.all.keys('bar', 'baz');
-//         });
-
-//         it('include/contains statements', function () {
-//             expect([1, 2, 3]).to.include(2);
-//             expect('foobar').to.contain('foo');
-//             expect({ foo: 'bar', hello: 'universe' }).to.include.keys('foo');
-//         });
-
-//         it('ok statement', function () {
-//             expect('everything').to.be.ok;
-//             expect(1).to.be.ok;
-//             expect(false).to.not.be.ok;
-//             expect(undefined).to.not.be.ok;
-//             expect(null).to.not.be.ok;
-//         });
-
-//         it('true/false statements', function () {
-//             expect(true).to.be.true;
-//             expect(1).to.not.be.true;
-//             expect(false).to.be.false;
-//             expect(0).to.not.be.false;
-//         });
-
-//         it('null/undefined statements', function () {
-//             expect(null).to.be.null;
-//             expect(undefined).to.not.be.null;
-//             expect(undefined).to.be.undefined;
-//             expect(null).to.not.be.undefined;
-//         });
-
-//         // exist checks if the target is neither null or undefined
-//         it('exist statement', function () {
-//             var foo = 'hi', bar = null, baz;
-//             expect(foo).to.exist;
-//             expect(bar).to.not.exist;
-//             expect(baz).to.not.exist
-//         });
-
-//         // checks if the target's length is 0
-//         it('empty statement', function () {
-//             expect([]).to.be.empty;
-//             expect('').to.be.empty;
-//             expect({}).to.be.empty;
-//         });
-
-//         // eql is a short for deep.equal
-//         it('eql statement', function () {
-//             expect({ foo: 'bar' }).to.eql({ foo: 'bar' });
-//             expect([1, 2, 3]).to.eql([1, 2, 3]);
-//         });
-
-//         it('above/below statements', function () {
-//             expect('foo').to.have.length.above(2);
-//             expect([1, 2, 3]).to.have.length.above(2);
-//             expect('foo').to.have.length.below(4);
-//             expect([1, 2, 3]).to.have.length.below(4);
-//         });
-
-//         it('least/most statements', function () {
-//             expect('foo').to.have.length.of.at.least(2);
-//             expect([1, 2, 3]).to.have.length.of.at.least(3);
-//             expect('foo').to.have.length.of.at.most(4);
-//             expect([1, 2, 3]).to.have.length.of.at.most(3);
-//         });
-
-//         it('within statement', function () {
-//             expect('foo').to.have.length.within(2, 4);
-//             expect([1, 2, 3]).to.have.length.within(2, 4);
-//         });
-
-//         // check for regular expressions
-//         it('within statement', function () {
-//             expect('foobar').to.match(/^foo/);
-//         });
-
-//         // check that a string contains a substring
-//         it('string statement', function () {
-//             expect('foobar').to.have.string('bar');
-//         });
-
-//         // check that the target object/class responds to a method
-//         it('respondTo statement', function () {
-//             let Klass= function() {};
-//             Klass.prototype.bar = function(){};
-//             expect(Klass).to.respondTo('bar');
-//             let obj= {
-//                 bar: function() {}
-//             };
-//             expect(obj).to.respondTo('bar');
-//         });
-
-
-//         // check that the target passes a given truth test
-//         it('satisfy statement', function () {
-//             expect(1).to.satisfy(function(num) { return num > 0; });
-//         });
-
-
-//         // check that the target contains members
-//         it('members statement', function () {
-//             expect([1, 2, 3]).to.include.members([3, 2]);
-//             expect([1, 2, 3]).to.not.include.members([3, 2, 8]);
-//             expect([4, 2]).to.have.members([2, 4]);
-//             expect([5, 2]).to.not.have.members([5, 2, 1]);
-//         });
-
-//         // check that the target contains an element as top level elements of an array
-//         it('oneOf statement', function () {
-//             expect('a').to.be.oneOf(['a', 'b', 'c']);
-//             expect(9).to.not.be.oneOf(['z']);
-//             expect([3]).to.not.be.oneOf([1, 2, [3]]);
-//         });
-
-//         // check that a function changes a property of an object
-//         it('change statement', function () {
-//             var obj = { val: 10 };
-//             var fn = function() { obj.val += 3 };
-//             var noChangeFn = function() { return 'foo' + 'bar'; };
-//             expect(fn).to.change(obj, 'val');
-//             expect(noChangeFn).to.not.change(obj, 'val');
-//         });
-
-
-//         // check that a function increases or decreases a property value
-//         it('increase/decrease statements', function () {
-//             var obj = { val: 10 };
-//             var increaseFn = function() { obj.val = 15 };
-//             expect(increaseFn).to.increase(obj, 'val');
-//             var decreaseFn = function() { obj.val = 5 };
-//             expect(decreaseFn).to.decrease(obj, 'val');
-//         });
-
-//     });
-
-
-// });
 
 
 // // As written above, you can use sandbox for grouping stubs of same method
@@ -608,32 +556,4 @@
 //         myAPI.myMethod();
 //         sinon.assert.calledTwice(sandboxStub);
 //     });
-// });
-
-
-// // BDD interface
-// describe('#indexOf()', function () {
-
-//     it('aaa', function () {
-//         'bar'.should.equal('bar');
-//     });
-
-//     context('when not present', function () {
-//         it('should not throw an error', function () {
-//             (function () {
-//                 [1, 2, 3].indexOf(4);
-//             }).should.not.throw();
-//         });
-
-//         it('should return -1', function () {
-//             [1, 2, 3].indexOf(4).should.equal(-1);
-//         });
-//     });
-
-//     context('when present', function () {
-//         it('should return the index where the element first appears in the array', function () {
-//             [1, 2, 3].indexOf(3).should.equal(2);
-//         });
-//     });
-
 // });
