@@ -19,8 +19,7 @@
         "typings": "^2.1.1"
     },
     "scripts": {
-        "test": "find ./src -name '*spec.ts' | xargs mocha -r ts-node/register",
-        "precommit": "ts-node index.ts"
+        "test": "find ./src -name '*spec.ts' | xargs mocha -r ts-node/register"
     },
     "engines": {
         "node": "0.12.x"
