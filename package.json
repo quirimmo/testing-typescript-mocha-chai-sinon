@@ -1,0 +1,44 @@
+{
+    "name": "testing-typescript-mocha-chai-sinon",
+    "version": "1.0.0",
+    "description": "A project in order to show all the testing environment for typescript using mocha, chai, chai-as-promised and sinon, exploring all their methods with practical examples",
+    "main": "index.js",
+    "dependencies": {},
+    "devDependencies": {
+        "@types/chai": "^3.5.0",
+        "@types/chai-as-promised": "^0.0.30",
+        "@types/mocha": "^2.2.40",
+        "@types/node": "^7.0.12",
+        "@types/sinon": "^2.1.2",
+        "chai": "^3.5.0",
+        "chai-as-promised": "^6.0.0",
+        "husky": "^0.13.3",
+        "mocha": "^3.2.0",
+        "sinon": "^2.1.0",
+        "ts-node": "^3.0.2",
+        "typings": "^2.1.1"
+    },
+    "scripts": {
+        "test": "find ./src -name '*spec.ts' | xargs mocha -r ts-node/register",
+        "precommit": "ts-node index.ts"
+    },
+    "engines": {
+        "node": "0.12.x"
+    },
+    "keywords": [
+        "typescript",
+        "mocha",
+        "testing typescript",
+        "typescript tests",
+        "unit tests typescript",
+        "typescript mocha",
+        "mocha typescript",
+        "typescript chai",
+        "typescript chai-as-promised",
+        "typescript sinon",
+        "typescript unit tests",
+        "unit testing typescript"
+    ],
+    "author": "Quirino Lo Russo",
+    "license": "MIT"
+}
