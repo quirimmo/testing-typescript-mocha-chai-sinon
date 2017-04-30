@@ -1,37 +1,6 @@
-// // by default mocha reads a file called test/mocha.opts with all the options you can set to mocha
-
-// // testing imports
-// import * as mocha from 'mocha';
-// import * as chai from 'chai';
-// import * as chaiAsPromised from 'chai-as-promised';
-// import sinon = require('sinon');
-// // code imports
-// import { Utils } from './utils';
-
-// // testing inits
-// chai.use(chaiAsPromised);
-// const expect = chai.expect;
-// const assert = chai.assert;
-// const should = chai.should();
-
-
 // // TODO: commenting it out since it's taking too much time to execute all of them
 // describe('Utils class', () => {
 
-//     // ========== MAIN HOOKS =============
-//     // if you put the following hooks outside a main describe, they will be executed before every single file!
-//     before(function () {
-//         // runs before all tests in this block
-//     });
-//     after(function () {
-//         // runs after all tests in this block
-//     });
-//     beforeEach(function () {
-//         // runs before each test in this block
-//     });
-//     afterEach(function () {
-//         // runs after each test in this block
-//     });
 
 
 //     describe('#getTextSeparator() method', function () {

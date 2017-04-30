@@ -11,3 +11,26 @@ chai.use(chaiAsPromised);
 const expect = chai.expect;
 const assert = chai.assert;
 const should = chai.should();
+
+// startint tests exploration
+
+
+// ========== MAIN HOOKS =============
+// if you put the following hooks outside a main describe, they will be executed before every single file!
+// otherwise they follow the describe's scope
+describe('Main Hooks', () => {
+
+    before(function () {
+        // runs before all tests in this block
+    });
+    after(function () {
+        // runs after all tests in this block
+    });
+    beforeEach(function () {
+        // runs before each test in this block
+    });
+    afterEach(function () {
+        // runs after each test in this block
+    });
+    
+});
