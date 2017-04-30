@@ -125,11 +125,22 @@ describe('explore all the chai methods and functionalities', function() {
         list.should.have.lengthOf(5);
     });
 
-    it('should check correctly the presence of a property inside an object', function () {
+    it('should check correctly the presence of a property and a deep property inside an object and a nested array', function () {
         let obj = { test: 'TEST', foo: { bar: { baz: 'quux' } } };
         obj.should.have.property('test');
         obj.should.have.property('test', 'TEST');
         obj.should.have.deep.property('foo.bar.baz', 'quux');
+        let arr = [ [1,2,3], ['test A', 'test B'], [{ first: 'A', second: 'B' }]];
+        arr.should.have.deep.property('[0][2]', 3);
+        arr.should.have.deep.property('[2][0].first', 'A');
+    });
+
+    it('should check correctly the equality of simple types and complex types', function () {
+        let string = 'test';
+        let obj = { test: 'TEST', foo: { bar: { baz: 'quux' } } };
+        string.should.be.equal('test');
+        obj.should.be.deep.equal({ test: 'TEST', foo: { bar: { baz: 'quux' } } });
+        obj.should.be.eql({ test: 'TEST', foo: { bar: { baz: 'quux' } } });
     });
 
 });

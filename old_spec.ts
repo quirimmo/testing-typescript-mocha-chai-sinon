@@ -1,32 +1,6 @@
-// // TODO: commenting it out since it's taking too much time to execute all of them
-// describe('Utils class', () => {
-
-
-
 //     describe('explore all the chai expectations', function () {
 
-
-//         it('should check correctly the presence of a property inside an object', function () {
-//             let obj = {
-//                 test: 'TEST'
-//             };
-//             obj.should.have.property('test');
-//             obj.should.have.property('test', 'TEST');
-//             expect({ foo: { bar: { baz: 'quux' } } }).to.have.deep.property('foo.bar.baz', 'quux');
-//         });
-
-//         it('should check the equality of simple type', function () {
-//             let simpleString = 'Simple String';
-//             simpleString.should.be.equal('Simple String');
-//         });
-
 //         it('should check the equality of complex types', function () {
-//             let obj = {
-//                 test: 'TEST'
-//             };
-//             obj.should.be.deep.equal({
-//                 test: 'TEST'
-//             });
 //             expect(null).to.be.a('null');
 //             expect(undefined).to.be.an('undefined');
 //             expect(new Error).to.be.an('error');
@@ -36,14 +10,6 @@
 //             let Foo = function () { };
 //             let foo = new Foo();
 //             expect(foo).to.be.an.instanceof(Foo);
-//             var arr = [
-//                 ['chai', 'matcha', 'konacha']
-//                 , [{ tea: 'chai' }
-//                     , { tea: 'matcha' }
-//                     , { tea: 'konacha' }]
-//             ];
-//             expect(arr).to.have.deep.property('[0][1]', 'matcha');
-//             expect(arr).to.have.deep.property('[1][2].tea', 'konacha');
 //         });
 
 //         it('not statement', function () {
@@ -519,12 +485,6 @@
 //             sinon.assert.calledWith(callback, [{ "id": 12, "comment": "Hey there" }]);
 //             server.restore();
 //         });
-
-//     });
-
-
-
-
 
 
 // // As written above, you can use sandbox for grouping stubs of same method
