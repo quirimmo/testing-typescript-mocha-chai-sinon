@@ -207,10 +207,98 @@ describe('explore all the chai methods and functionalities', function() {
     });
 
     it('should use exist statement to check if the target is neither null or undefined', function () {
-        var foo = 'hi', bar = null, baz;
+        let foo = 'hi', bar = null, baz;
         expect(foo).to.exist;
         expect(bar).to.not.exist;
         expect(baz).to.not.exist
     });
+
+    it('should use empty statement to check if the length is 0', function () {
+        expect([]).to.be.empty;
+        expect('').to.be.empty;
+        expect({}).to.be.empty;
+    });
+
+    it('should use above/below statements to compare values', function () {
+        expect('foo').to.have.length.above(2);
+        expect([1, 2, 3]).to.have.length.above(2);
+        expect('foo').to.have.length.below(4);
+        expect([1, 2, 3]).to.have.length.below(4);
+    });
+
+    it('should use least/most statements to compare values', function () {
+        expect('foo').to.have.length.of.at.least(2);
+        expect([1, 2, 3]).to.have.length.of.at.least(3);
+        expect('foo').to.have.length.of.at.most(4);
+        expect([1, 2, 3]).to.have.length.of.at.most(3);
+    });
+
+    it('should use within statement to compare values', function () {
+        expect('foo').to.have.length.within(2, 4);
+        expect([1, 2, 3]).to.have.length.within(2, 4);
+    });
+
+    it('should use match statement to use a regular expression for comparing values', function () {
+        expect('foobar').to.match(/^foo/);
+    });
+
+
+    it('should use string statement to check that a string contains a substring', function () {
+        expect('foobar').to.have.string('bar');
+    });
+
+
+    it('should use the respondTo statement to check that the target object/class responds to a certain method', function () {
+        let Klass= function() {};
+        Klass.prototype.bar = function(){};
+        expect(Klass).to.respondTo('bar');
+        let obj= { bar: function() {} };
+        expect(obj).to.respondTo('bar');
+    });
+
+
+    it('should use the satisfy statement to check that a target passes a given truth test', function () {
+        expect(1).to.satisfy(function(num) { return num > 0; });
+    });
+
+
+    it('should use the members statement to check that a target include or not certain elements', function () {
+        expect([1, 2, 3]).to.include.members([3, 2]);
+        expect([1, 2, 3]).to.not.include.members([3, 2, 8]);
+        expect([4, 2]).to.have.members([2, 4]);
+        expect([5, 2]).to.not.have.members([5, 2, 1]);
+    });
+
+
+    it('should use the oneOf statement to check that a target element contains an element as top level element of an array', function () {
+        expect('a').to.be.oneOf(['a', 'b', 'c']);
+        expect(9).to.not.be.oneOf(['z']);
+        expect([3]).to.not.be.oneOf([1, 2, [3]]);
+    });
+
+
+    it('should use the change statement to check that a function changes a certain property of an object', function () {
+        let obj = { val: 10 };
+        let fn = function() { obj.val += 3 };
+        let noChangeFn = function() { return 'foo' + 'bar'; };
+        expect(fn).to.change(obj, 'val');
+        expect(noChangeFn).to.not.change(obj, 'val');
+    });
+
+    
+    it('should use the increase/decrease statements to check that a function increases or decreases a property of an object or a value', function () {
+        let obj = { val: 10 };
+        let increaseFn = function() { obj.val = 15 };
+        expect(increaseFn).to.increase(obj, 'val');
+        let decreaseFn = function() { obj.val = 5 };
+        expect(decreaseFn).to.decrease(obj, 'val');
+    });
+
+});
+
+
+
+// ========== CHAI-AS-PROMISED METHODS =============
+describe('explore all the chai-as-promised methods and functionalities', function() {
 
 });
