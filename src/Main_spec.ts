@@ -299,6 +299,64 @@ describe('explore all the chai methods and functionalities', function() {
 
 
 // ========== CHAI-AS-PROMISED METHODS =============
+// chai-as-promised introduce the eventually for testing promises results and then concatenating the notify done to move after or returning the assertion
 describe('explore all the chai-as-promised methods and functionalities', function() {
+
+    it('should return [1,2,3] after 1 seconds', function (done) {
+        Main.getPromiseForTest().should.eventually.eql([1, 2, 3]).notify(done);
+    });
+
+    it('should return an array with length 3 after 1 seconds and use the notify done in order to move after', function (done) {
+        Main.getPromiseForTest().should.eventually.have.length(3).notify(done);
+    });
+
+    it('should return an array with length 3 after 1 seconds and return the assertion in order to move after', function () {
+        return Main.getPromiseForTest().should.eventually.have.length(3);
+    });
+ 
+    it('should return an object after 1 seconds and check the deep equality using should eventually deep equal', function (done: Function) {
+        Main.getAnObjectByPromise().should.eventually.deep.equal({
+            firstname: 'Tony',
+            lastname: 'Stark'
+        }).notify(done);
+    });
+
+    it('should return an object after 1 seconds and check the deep equality using should become, which has the same meaning of should eventually deep equal', function (done: Function) {
+        Main.getAnObjectByPromise().should.become({
+            firstname: 'Tony',
+            lastname: 'Stark'
+        }).notify(done);
+    });
+
+    it('should check that the promise has been rejected after 1 seconds', function (done: Function) {
+        Main.getRejectedPromise().should.be.rejected.notify(done);
+    });
+
+    it('should reject the promise with an error after 1 seconds', function (done: Function) {
+        Main.getRejectedPromise().should.be.rejectedWith(Error, 'Error on promise!').notify(done);
+    });
+
+    it("should test that all the promises tests will be fine", function () {
+        return Promise.all([
+            Main.getRejectedPromise().should.be.rejectedWith(Error),
+            Main.getAnObjectByPromise().should.eventually.have.property('firstname')
+        ]);
+    });
+
+    // testing that the promise is correctly resolved in general. It will fail if rejected
+    it("should use fulfilled statement to test that the promise is correctly resolved. Will fail if rejected", function (done) {
+        Main.getAnObjectByPromise().should.be.fulfilled.notify(done);
+    });
+
+
+    // You can test asynch code also using the done callback.
+    // Passing the done callback, the test will stop until the done callback will be find
+    it('should use the done callback to test that the async code returns an array with length 3 and go on after promise has been resolved', function (done) {
+        Main.getPromiseForTest().then((data) => {
+            data.length.should.be.equal(3);
+            done();
+        });
+    });
+
 
 });
