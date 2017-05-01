@@ -1,54 +1,5 @@
 //     describe('explore all the chai expectations', function () {
 
-//         it('should check the equality of complex types', function () {
-//             expect(null).to.be.a('null');
-//             expect(undefined).to.be.an('undefined');
-//             expect(new Error).to.be.an('error');
-//             expect(new Promise<any>((resolve, reject) => { })).to.be.a('promise');
-//             expect(new Float32Array(2)).to.be.a('float32array');
-//             expect(Symbol()).to.be.a('symbol');
-//             let Foo = function () { };
-//             let foo = new Foo();
-//             expect(foo).to.be.an.instanceof(Foo);
-//         });
-
-//         it('not statement', function () {
-//             let foo = 'foo bar';
-//             foo.should.not.equal('foo');
-//             let fn = function () { };
-//             fn.should.not.throw(Error);
-//             expect({ foo: 'baz' }).to.have.property('foo').and.not.equal('bar');
-//         });
-
-//         it('any statement', function () {
-//             let foo = {
-//                 bar: 'value'
-//             };
-//             expect(foo).to.have.any.keys('bar', 'baz');
-//         });
-
-//         it('all statement', function () {
-//             let foo = {
-//                 bar: 'value1',
-//                 baz: 'value2'
-//             };
-//             expect(foo).to.have.all.keys('bar', 'baz');
-//         });
-
-//         it('include/contains statements', function () {
-//             expect([1, 2, 3]).to.include(2);
-//             expect('foobar').to.contain('foo');
-//             expect({ foo: 'bar', hello: 'universe' }).to.include.keys('foo');
-//         });
-
-//         it('ok statement', function () {
-//             expect('everything').to.be.ok;
-//             expect(1).to.be.ok;
-//             expect(false).to.not.be.ok;
-//             expect(undefined).to.not.be.ok;
-//             expect(null).to.not.be.ok;
-//         });
-
 //         it('true/false statements', function () {
 //             expect(true).to.be.true;
 //             expect(1).to.not.be.true;
