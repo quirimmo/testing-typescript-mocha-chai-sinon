@@ -1,0 +1,2 @@
+read all the code and refactor it, describe it better
+add in the readme.md all the needed instruction
